@@ -1,0 +1,32 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "Xru2hHcY7IybSk9UITImDexvLqs=",
+			"path": "github.com/ansoni/termination",
+			"revision": "fbab1bcf5aa4cc39ea28ac8ad13e391f21f3d881",
+			"revisionTime": "2018-03-31T08:41:09Z"
+		},
+		{
+			"checksumSHA1": "5S3+uSY9OiqIaiZ1r3oEDJ+p1iA=",
+			"path": "github.com/dhconnelly/rtreego",
+			"revision": "bfdb5de0e5dc6358ab585e4a5223dd4f334239ac",
+			"revisionTime": "2018-02-21T16:07:50Z"
+		},
+		{
+			"checksumSHA1": "A/hIVM4h5YznSJfpfp+divDCuxo=",
+			"origin": "github.com/nsf/termbox-go/vendor/github.com/mattn/go-runewidth",
+			"path": "github.com/mattn/go-runewidth",
+			"revision": "e2050e41c8847748ec5288741c0b19a8cb26d084",
+			"revisionTime": "2018-03-03T15:24:53Z"
+		},
+		{
+			"checksumSHA1": "5hvE/uEQ/52978YQgoRyd98GAOs=",
+			"path": "github.com/nsf/termbox-go",
+			"revision": "e2050e41c8847748ec5288741c0b19a8cb26d084",
+			"revisionTime": "2018-03-03T15:24:53Z"
+		}
+	],
+	"rootPath": "github.com/ansoni/goquarium"
+}
