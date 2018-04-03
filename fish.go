@@ -194,14 +194,14 @@ func random(min int, max int) int {
     return rand.Intn(max-min) + min
 }
 
-func fish() {
+func Fish() {
 	rand.Seed(int64(time.Now().Nanosecond()))
 
 	goquarium := Goquarium{}
 	term := termination.New()
-	#term.Debug="./debug.out"
+	//term.Debug="./debug.out"
 	goquarium.term = term
-	term.FramesPerSecond = 60
+	term.FramesPerSecond = 10
 	goquarium.setupEnvironment()
 
 	go goquarium.generateBubbles()
@@ -226,5 +226,5 @@ func fish() {
 
 func main() {
 	// do you have an aquarium?
-	fish()		
+	Fish()		
 }
