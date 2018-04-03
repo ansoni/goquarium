@@ -1,4 +1,4 @@
-package main
+package goquarium
 
 import (
 	"github.com/ansoni/termination"
@@ -224,7 +224,3 @@ func Fish() {
 	}
 }
 
-func main() {
-	// do you have an aquarium?
-	Fish()		
-}

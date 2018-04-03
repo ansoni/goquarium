@@ -1,4 +1,4 @@
-package main
+package goquarium
 
 import (
         "github.com/ansoni/termination"
