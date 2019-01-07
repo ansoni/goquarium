@@ -9,5 +9,10 @@ A half-implmented Asciiquarium port.  Missing a lot of fish and the ability to a
 	go get
 	go build
 	./goquarium
+	
+# See Also
+[Termination Lib](https://github.com/ansoni/termination)
+[Steam Locamotive](https://github.com/ansoni/gosl)
+
 
 
