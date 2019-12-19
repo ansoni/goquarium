@@ -1,22 +1,22 @@
 package goquarium
 
 import (
+	"math/rand"
+	"os"
+	"time"
+
 	"github.com/ansoni/termination"
 	"github.com/nsf/termbox-go"
-	"os"
-	"math/rand"
-	"time"
 )
 
-type Goquarium struct {	
-	term *termination.Termination
-	surface []*termination.Entity
-        ripples []*termination.Entity
-        seaweeds []*termination.Entity
-        fishes []*termination.Entity
-	castle *termination.Entity
-	bubbles *termination.Entity
-
+type Goquarium struct {
+	term     *termination.Termination
+	surface  []*termination.Entity
+	ripples  []*termination.Entity
+	seaweeds []*termination.Entity
+	fishes   []*termination.Entity
+	castle   *termination.Entity
+	bubbles  *termination.Entity
 }
 
 func (goq *Goquarium) generateBubbles() {
@@ -25,8 +25,8 @@ func (goq *Goquarium) generateBubbles() {
 		rand.Seed(int64(time.Now().Nanosecond()))
 		randX := random(0, term.Width)
 		randY := random(17, term.Height)
-		
-		bubble := term.NewEntity(termination.Position{randX, randY, 10})
+
+		bubble := term.NewEntity(termination.Position{X: randX, Y: randY, Z: 10})
 		bubble.Shape = bubbleShape
 		bubble.MovementCallback = termination.UpMovement
 		bubble.DefaultColor = 'c'
@@ -45,11 +45,11 @@ func (goq *Goquarium) deadWhale(term *termination.Termination, entity *terminati
 }
 
 func (goq *Goquarium) addWhale() {
-	direction := []string{"left","right"}[random(0, 2)]
+	direction := []string{"left", "right"}[random(0, 2)]
 	width := goq.term.Width
-	position := termination.Position{-10, 0, 50}	
+	position := termination.Position{X: -10, Y: 0, Z: 50}
 	if direction == "left" {
-		position = termination.Position{width+10, 0, 50}
+		position = termination.Position{X: width + 10, Y: 0, Z: 50}
 	}
 
 	whale := goq.term.NewEntity(position)
@@ -68,14 +68,13 @@ func (goq *Goquarium) addWhale() {
 	whale.FramesPerSecond = 10
 }
 
-
 func (goq *Goquarium) addFish() {
 	rand.Seed(int64(time.Now().Nanosecond()))
-	fishSelection := random(0,len(fishShapes))
+	fishSelection := random(0, len(fishShapes))
 	fishShape := fishShapes[fishSelection]
 	fishMask := fishMasks[fishSelection]
 
-	direction := []string{"left","right"}[random(0, 2)]
+	direction := []string{"left", "right"}[random(0, 2)]
 
 	// we unfortunately have to iterate to get its height before insert...
 	shapeData := []rune(fishShape["left"][0])
@@ -86,13 +85,13 @@ func (goq *Goquarium) addFish() {
 		}
 	}
 
-	height := goq.term.Height-shapeHeight
+	height := goq.term.Height - shapeHeight
 	width := goq.term.Width
 	randY := random(9, height)
 	speed := random(5, 10)
 	// TODO: lots of duplicate code here
 	if direction == "left" {
-		fish := goq.term.NewEntity(termination.Position{width+10, randY, 5})
+		fish := goq.term.NewEntity(termination.Position{X: width + 10, Y: randY, Z: 5})
 		fish.Shape = fishShape
 		fish.DeathOnOffScreen = true
 		fish.ColorMask = fishMask
@@ -102,7 +101,7 @@ func (goq *Goquarium) addFish() {
 		fish.FramesPerSecond = speed
 		goq.fishes = append(goq.fishes, fish)
 	} else {
-		fish := goq.term.NewEntity(termination.Position{-10, randY, 5})
+		fish := goq.term.NewEntity(termination.Position{X: -10, Y: randY, Z: 5})
 		fish.DeathOnOffScreen = true
 		fish.Shape = fishShape
 		fish.DeathCallback = goq.deadFish
@@ -119,7 +118,7 @@ func (goq *Goquarium) generateFishes() {
 	fishCount := int(screenSize / 200)
 
 	// keep adding fish when we need
-	for i:=0;i<fishCount;i++ {
+	for i := 0; i < fishCount; i++ {
 		goq.addFish()
 		time.Sleep(500 * time.Millisecond) // space out the fish a bit
 	}
@@ -131,17 +130,17 @@ func (goq *Goquarium) setupEnvironment() {
 	height := term.Height
 	width := term.Width
 
-	needed := width/4
-	for i := 0;i < needed;i++ {
-		surface := term.NewEntity(termination.Position{i*4, top_y, 10})
+	needed := width / 4
+	for i := 0; i < needed; i++ {
+		surface := term.NewEntity(termination.Position{X: i * 4, Y: top_y, Z: 10})
 		surface.Shape = surfaceShape
 		surface.ColorMask = waterMask
 		surface.FramesPerSecond = 1
 		goq.surface = append(goq.surface, surface)
 
-		ripplePaths := []string{"a","b","c","d"}
-		rand := random(0,4)
-		ripples := term.NewEntity(termination.Position{i*4, top_y+1, 10})
+		ripplePaths := []string{"a", "b", "c", "d"}
+		rand := random(0, 4)
+		ripples := term.NewEntity(termination.Position{X: i * 4, Y: top_y + 1, Z: 10})
 		ripples.Shape = rippleShape
 		ripples.ColorMask = waterMask
 		ripples.ShapePath = ripplePaths[rand]
@@ -150,7 +149,7 @@ func (goq *Goquarium) setupEnvironment() {
 	}
 
 	//castle! castle is 13 high... if we change it... gonna suck here
-	goq.castle = term.NewEntity(termination.Position{width-31, height-13, -1})
+	goq.castle = term.NewEntity(termination.Position{X: width - 31, Y: height - 13, Z: -1})
 	goq.castle.Shape = castleShape
 	goq.castle.FramesPerSecond = 1
 	goq.castle.ShapePath = "default"
@@ -158,40 +157,38 @@ func (goq *Goquarium) setupEnvironment() {
 	goq.castle.DefaultColor = 'W'
 
 	//grass is a bit random
-	seaweedCount := width/15
-	for i := 0;i < seaweedCount;i++ {
-	        rand.Seed(int64(time.Now().Nanosecond()))
-		seaweedHeight := random(1,7)
+	seaweedCount := width / 15
+	for i := 0; i < seaweedCount; i++ {
+		rand.Seed(int64(time.Now().Nanosecond()))
+		seaweedHeight := random(1, 7)
 		seaweedX := random(0, width)
-		path := []string{"a","b"}
+		path := []string{"a", "b"}
 		h := 0
-	        for j := seaweedHeight;j >= 0;j-- {
-			x:=seaweedX
-			y:=height - seaweedHeight
+		for j := seaweedHeight; j >= 0; j-- {
+			x := seaweedX
+			y := height - seaweedHeight
 			if x > width {
-				x=width
+				x = width
 			}
-			
-		        seaweed := term.NewEntity(termination.Position{x, y+j, 10})
+
+			seaweed := term.NewEntity(termination.Position{X: x, Y: y + j, Z: 10})
 			seaweed.Shape = seaweedShape
 			seaweed.FramesPerSecond = 2
 			seaweed.ShapePath = path[h]
 			seaweed.ColorMask = seaweedMask
 			goq.seaweeds = append(goq.seaweeds, seaweed)
 			if h == 0 {
-				h = 1 
+				h = 1
 			} else {
 				h = 0
 			}
 		}
 	}
 
-	
-	
 }
 
 func random(min int, max int) int {
-    return rand.Intn(max-min) + min
+	return rand.Intn(max-min) + min
 }
 
 func Fish() {
@@ -223,4 +220,3 @@ func Fish() {
 		}
 	}
 }
-

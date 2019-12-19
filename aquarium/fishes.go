@@ -1,76 +1,76 @@
 package goquarium
 
 import (
-        "github.com/ansoni/termination"
+	"github.com/ansoni/termination"
 )
 
 /**
  * This is all of our shapes!
  */
 
-var surfaceShape = termination.Shape {
-    "default": []string {
-      "~~~~",
-    },
+var surfaceShape = termination.Shape{
+	"default": []string{
+		"~~~~",
+	},
 }
 
-var waterMask = termination.Shape {
-    "default": []string {
-      "bbbb",
-    },
-    "a": []string {
-      "cccc\n"+
-      "cccc\n"+
-      "cccc",
-    },
-    "b": []string {
-      "cccc\n"+
-      "cccc\n"+
-      "cccc",
-    },
-    "c": []string {
-      "cccc\n"+
-      "cccc\n"+
-      "cccc",
-    },
-    "d": []string {
-      "cccc\n"+
-      "cccc\n"+
-      "cccc",
-    },
+var waterMask = termination.Shape{
+	"default": []string{
+		"bbbb",
+	},
+	"a": []string{
+		"cccc\n" +
+			"cccc\n" +
+			"cccc",
+	},
+	"b": []string{
+		"cccc\n" +
+			"cccc\n" +
+			"cccc",
+	},
+	"c": []string{
+		"cccc\n" +
+			"cccc\n" +
+			"cccc",
+	},
+	"d": []string{
+		"cccc\n" +
+			"cccc\n" +
+			"cccc",
+	},
 }
 
-var rippleShape = termination.Shape {
-    "a": []string {
-      "^^^^\n" + 
-      "^^^^\n" +
-      "^^  ",
-    },
-    "b": []string {
-      " ^^^\n" + 
-      "    \n" +
-      "    ",
-    },
-    "c": []string {
-      "  ^^\n" + 
-      "^^  \n" + 
-      "   ^",
-    },
-    "d": []string {
-      "    \n" +
-      "    \n" +
-      "    ",
-    },
-    "e": []string {
-      " ^  \n" +
-      "  ^ \n" +
-      "   ^", 
-    },
+var rippleShape = termination.Shape{
+	"a": []string{
+		"^^^^\n" +
+			"^^^^\n" +
+			"^^  ",
+	},
+	"b": []string{
+		" ^^^\n" +
+			"    \n" +
+			"    ",
+	},
+	"c": []string{
+		"  ^^\n" +
+			"^^  \n" +
+			"   ^",
+	},
+	"d": []string{
+		"    \n" +
+			"    \n" +
+			"    ",
+	},
+	"e": []string{
+		" ^  \n" +
+			"  ^ \n" +
+			"   ^",
+	},
 }
 
-var castleShape = termination.Shape {
-	"default": []string {
-`               T~~
+var castleShape = termination.Shape{
+	"default": []string{
+		`               T~~
                |
               /^\
              /   \
@@ -83,7 +83,7 @@ var castleShape = termination.Shape {
  |=  []- |-  /| |\   |=_ =[] |
  |- =_   | =| | | |  |- = -  |
  |_______|__|_|_|_|__|_______|`,
-`               T~
+		`               T~
                |
               /^\
              /   \
@@ -99,9 +99,9 @@ var castleShape = termination.Shape {
 	},
 }
 
-var castleMask = termination.Shape {
-	"default": []string {
-`               Trr
+var castleMask = termination.Shape{
+	"default": []string{
+		`               Trr
                |
               yyy
              y   y
@@ -114,7 +114,7 @@ var castleMask = termination.Shape {
  |=  []- |-  yy yy   |=_ =[] |
  |- =_   | =y y y y  |- = -  |
  |_______|__y_y_y_y__|_______|`,
-`               Tr
+		`               Tr
                |
               yyy
              y   y
@@ -128,71 +128,70 @@ var castleMask = termination.Shape {
  |- =_   | =y y y y  |- = -  |
  |_______|__y_y_y_y__|_______|`,
 	},
-	
 }
 
-var seaweedShape = termination.Shape {
-	"a": []string {
+var seaweedShape = termination.Shape{
+	"a": []string{
 		"( ",
 		" )",
 	},
-	"b": []string {
+	"b": []string{
 		" )",
 		"( ",
 	},
 }
 
-var seaweedMask = termination.Shape {
-	"a": []string {
+var seaweedMask = termination.Shape{
+	"a": []string{
 		"g ",
 		" g",
 	},
-	"b": []string {
+	"b": []string{
 		" g",
 		"g ",
 	},
 }
 
-var bubbleShape = termination.Shape {
-	"default": []string {
+var bubbleShape = termination.Shape{
+	"default": []string{
 		".",
 		".",
 		".",
 		".",
-		"o", 
-		"o", 
-		"o", 
-		"o", 
+		"o",
+		"o",
+		"o",
+		"o",
 		"O",
 		"O",
 		"O",
 	},
 }
 
-var fishShapes = []termination.Shape {
+var fishShapes = []termination.Shape{
 	fish1Shape,
 	fish2Shape,
 	fish3Shape,
 	fish4Shape,
 }
 
-var fishMasks = []termination.Shape {
+var fishMasks = []termination.Shape{
 	fish1Mask,
 	fish2Mask,
 	fish3Mask,
 	fish4Mask,
 }
 
-var fish1Shape = termination.Shape {
-	"left": []string {
-`???/
+var fish1Shape = termination.Shape{
+	"left": []string{
+		`???/
 ??/ \
 <')_=<
 ??\_/
 ???\`,
-},
-"right": []string { 
-`?\
+	},
+	"right": []string{
+		`?\
 ?/ \
 >=_('>
 ?\_/
@@ -200,16 +199,16 @@ var fish1Shape = termination.Shape {
 	},
 }
 
-var fish1Mask = termination.Shape {
-	"left": []string {
-`   m
+var fish1Mask = termination.Shape{
+	"left": []string{
+		`   m
   r r
 y'brgg
   rrr
    y`,
 	},
-	"right": []string {
-` m
+	"right": []string{
+		` m
  r r
 ggrb'y
 rrrr
@@ -217,300 +216,301 @@ rrrr
 	},
 }
 
-var fish2Shape = termination.Shape {
-	"left": []string {
-`?__
+var fish2Shape = termination.Shape{
+	"left": []string{
+		`?__
 /o \/
 \__/\`,
 	},
-	"right": []string { 
-`??__
+	"right": []string{
+		`??__
 \/ o\
 /\__/`,
 	},
 }
 
-var fish2Mask = termination.Shape {
-	"left": []string {
-`?gg
+var fish2Mask = termination.Shape{
+	"left": []string{
+		`?gg
 gW gb
 ggggb`,
 	},
-	"right": []string {
-`??bb
+	"right": []string{
+		`??bb
 bb Wb
 bbbbb`,
 	},
 }
 
-var fish3Shape = termination.Shape {
-	"left": []string {
-" /,\n" +
-"<')=<\n" +
-" \\`",
+var fish3Shape = termination.Shape{
+	"left": []string{
+		" /,\n" +
+			"<')=<\n" +
+			" \\`",
 	},
-	"right": []string { 
-" ,\\\n" +
-">=('>\n" +
-" '/",
+	"right": []string{
+		" ,\\\n" +
+			">=('>\n" +
+			" '/",
 	},
 }
 
-var fish3Mask = termination.Shape {
-	"left": []string {
-` rg
+var fish3Mask = termination.Shape{
+	"left": []string{
+		` rg
 b'ycc
  cg`,
 	},
-	"right": []string {
-` gr
+	"right": []string{
+		` gr
 ccy'b
  gc`,
 	},
 }
-var fish4Shape = termination.Shape {
-	"left": []string {
-"????_,--,\n" +
-"?.-'---./_    __\n" +
-"/o \\\\     \"-.' /\n" +
-"\\  //    _.-'._\\\n" +
-"?`\"\\)--\"`",
+var fish4Shape = termination.Shape{
+	"left": []string{
+		"????_,--,\n" +
+			"?.-'---./_    __\n" +
+			"/o \\\\     \"-.' /\n" +
+			"\\  //    _.-'._\\\n" +
+			"?`\"\\)--\"`",
 	},
-	"right": []string { 
-"???????,--,_\n" +
-"__????_\\.---'-.\n" +
-"\\ '.-\"     // o\\\n" + 
-"/_.'-._    \\\\  /\n" +
-"???????`\"--(/\"`",
-	},
-}
-
-var fish4Mask = termination.Shape {
-	"left": []string {
-"????ggggg\n" +
-"?rrgrrrrgr    gg\n" +
-"ro rr     rrgg g\n" +
-"r  rr    rrrrggg\n" +
-"?rrrggrrrr",
-	},
-	"right": []string {
-"???????ggggg\n" +
-"gg????ygyyyygyy\n" +
-"g gyyyy    yy oy\n" + 
-"gggyyyy    yy  y\n" +
-"???????yyyyggyy",
+	"right": []string{
+		"???????,--,_\n" +
+			"__????_\\.---'-.\n" +
+			"\\ '.-\"     // o\\\n" +
+			"/_.'-._    \\\\  /\n" +
+			"???????`\"--(/\"`",
 	},
 }
 
-var whaleShape = termination.Shape {
-	"left": []string {
-"                \n" +
-"                \n"+
-"                \n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"                \n"+
-"                \n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"                \n" +
-"    :\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"    :\n"+
-"    :\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   . .\n" +
-"    :\n"+
-"    :\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   . .\n" +
-" '.-:-.`\n"+
-"    :\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   . .\n" +
-" '.-:-.`\n"+
-" '  :  '\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (o)       \\????,\n" +
-"(__,          \\_.'/\n",
+var fish4Mask = termination.Shape{
+	"left": []string{
+		"????ggggg\n" +
+			"?rrgrrrrgr    gg\n" +
+			"ro rr     rrgg g\n" +
+			"r  rr    rrrrggg\n" +
+			"?rrrggrrrr",
 	},
-	"right": []string {
-"                \n" +
-"                \n"+
-"                \n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"                \n"+
-"                \n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"                \n"+
-"              :\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"              :\n"+
-"              :\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"             . .\n" +
-"              :\n"+
-"              :\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"             . .\n" +
-"           '.-:-.`\n"+
-"              :\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
-"             . .\n" +
-"           '.-:-.`\n"+
-"           '  :  '\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (o) \\\n" +
-"\\`._/          ,__)\n",
+	"right": []string{
+		"???????ggggg\n" +
+			"gg????ygyyyygyy\n" +
+			"g gyyyy    yy oy\n" +
+			"gggyyyy    yy  y\n" +
+			"???????yyyyggyy",
 	},
 }
 
-var whaleMask = termination.Shape {
-	"left": []string {
-"                \n" +
-"                \n"+
-"                \n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"                \n"+
-"                \n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"                \n" +
-"    c\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"                \n" +
-"    c\n"+
-"    c\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   c c\n" +
-"    c\n"+
-"    c\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   c c\n" +
-" ccccccc\n"+
-"    c\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
-"   c c\n" +
-" ccccccc\n"+
-" c  c  c\n"+
-"    :-----.\n" +
-"  .'       `.\n" +
-" / (W)       \\????,\n" +
-"(__,          \\_.'/\n",
+var whaleShape = termination.Shape{
+	"left": []string{
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"                \n" +
+			"    :\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"    :\n" +
+			"    :\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   . .\n" +
+			"    :\n" +
+			"    :\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   . .\n" +
+			" '.-:-.`\n" +
+			"    :\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   . .\n" +
+			" '.-:-.`\n" +
+			" '  :  '\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (o)       \\????,\n" +
+			"(__,          \\_.'/\n",
 	},
-	"right": []string {
-"                \n" +
-"                \n"+
-"                \n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"                \n"+
-"                \n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"                \n"+
-"              c\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"                \n" +
-"              c\n"+
-"              c\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"             c c\n" +
-"              c\n"+
-"              c\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"             c c\n" +
-"           ccccccc\n"+
-"              c\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
-"             c c\n" +
-"           ccccccc\n"+
-"           c  c  c\n"+
-"        .-----:\n" +
-"      .'       `.\n" +
-",????/       (R) \\\n" +
-"\\`._/          ,__)\n",
+	"right": []string{
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"                \n" +
+			"              :\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"              :\n" +
+			"              :\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"             . .\n" +
+			"              :\n" +
+			"              :\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"             . .\n" +
+			"           '.-:-.`\n" +
+			"              :\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
+		"             . .\n" +
+			"           '.-:-.`\n" +
+			"           '  :  '\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (o) \\\n" +
+			"\\`._/          ,__)\n",
 	},
 }
+
+var whaleMask = termination.Shape{
+	"left": []string{
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"                \n" +
+			"    c\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"                \n" +
+			"    c\n" +
+			"    c\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   c c\n" +
+			"    c\n" +
+			"    c\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   c c\n" +
+			" ccccccc\n" +
+			"    c\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+		"   c c\n" +
+			" ccccccc\n" +
+			" c  c  c\n" +
+			"    :-----.\n" +
+			"  .'       `.\n" +
+			" / (W)       \\????,\n" +
+			"(__,          \\_.'/\n",
+	},
+	"right": []string{
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"                \n" +
+			"                \n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"                \n" +
+			"              c\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"                \n" +
+			"              c\n" +
+			"              c\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"             c c\n" +
+			"              c\n" +
+			"              c\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"             c c\n" +
+			"           ccccccc\n" +
+			"              c\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+		"             c c\n" +
+			"           ccccccc\n" +
+			"           c  c  c\n" +
+			"        .-----:\n" +
+			"      .'       `.\n" +
+			",????/       (R) \\\n" +
+			"\\`._/          ,__)\n",
+	},
+}
+
 /*
 var snakeShape = termination.Shape {
     "default": []string {
@@ -545,4 +545,3 @@ var snakeShape = termination.Shape {
 },
 }
 */
-
