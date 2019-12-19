@@ -1,8 +1,10 @@
 package goquarium
 
 import (
+	"fmt"
 	"math/rand"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/ansoni/termination"
@@ -44,6 +46,10 @@ func (goq *Goquarium) deadWhale(term *termination.Termination, entity *terminati
 	goq.addWhale()
 }
 
+func (goq *Goquarium) deadShark(term *termination.Termination, entity *termination.Entity) {
+	goq.addShark()
+}
+
 func (goq *Goquarium) addWhale() {
 	direction := []string{"left", "right"}[random(0, 2)]
 	width := goq.term.Width
@@ -66,6 +72,30 @@ func (goq *Goquarium) addWhale() {
 	}
 	//fish.Death = goq.deadFish
 	whale.FramesPerSecond = 10
+}
+
+func (goq *Goquarium) addShark() {
+	direction := []string{"left", "right"}[random(0, 2)]
+	width := goq.term.Width
+	position := termination.Position{X: -53, Y: 0, Z: 50}
+	if direction == "left" {
+		position = termination.Position{X: width + 53, Y: 0, Z: 50}
+	}
+
+	shark := goq.term.NewEntity(position)
+	shark.Shape = sharkShape
+	shark.DeathOnOffScreen = true
+	shark.ColorMask = sharkMask
+	shark.ShapePath = direction
+	shark.DefaultColor = 'c'
+	shark.DeathCallback = goq.deadShark
+	if direction == "left" {
+		shark.MovementCallback = termination.LeftMovement
+	} else {
+		shark.MovementCallback = termination.RightMovement
+	}
+	//fish.Death = goq.deadFish
+	shark.FramesPerSecond = 10
 }
 
 func (goq *Goquarium) addFish() {
@@ -204,6 +234,7 @@ func Fish() {
 	go goquarium.generateBubbles()
 	go goquarium.generateFishes()
 	goquarium.addWhale()
+	goquarium.addShark()
 	go term.Animate()
 
 	termbox.SetInputMode(termbox.InputEsc | termbox.InputMouse)
@@ -217,6 +248,25 @@ func Fish() {
 			}
 		case termbox.EventMouse:
 			//update_mouse(mouse, &ev)
+		}
+	}
+}
+
+// utility function to check differencies in shape/mask
+func check(s1, s2 []string) {
+	if len(s1) != len(s2) {
+		panic("foo")
+	}
+	for i := 0; i < len(s1); i++ {
+		l1 := strings.Split(s1[i], "\n")
+		l2 := strings.Split(s2[i], "\n")
+		if len(l1) != len(l2) {
+			panic(fmt.Sprintf("different in part %d", i))
+		}
+		for j := 0; j < len(l1); j++ {
+			if len(l1) != len(l2) {
+				panic(fmt.Sprintf("different in line %d of part %d", j, i))
+			}
 		}
 	}
 }
