@@ -43,11 +43,17 @@ func (goq *Goquarium) deadFish(term *termination.Termination, entity *terminatio
 }
 
 func (goq *Goquarium) deadWhale(term *termination.Termination, entity *termination.Entity) {
-	goq.addWhale()
+	go func() {
+        	time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
+		goq.addWhale()
+	}()
 }
 
 func (goq *Goquarium) deadShark(term *termination.Termination, entity *termination.Entity) {
-	goq.addShark()
+	go func() {
+        	time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
+		goq.addShark()
+	}()
 }
 
 func (goq *Goquarium) addWhale() {
